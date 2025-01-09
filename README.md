@@ -1,1 +1,2 @@
-My Simple Parking management system Made in Raw Java For my Class Project of ICTPRG532
+These are my Personal Uni projects which i did or will do on My Study Period
+

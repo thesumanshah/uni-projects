@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary-color: #2A3F54;
+            --secondary-color: #1ABB9C;
+            --accent-color: #34495E;
+            --text-color: #F7F9F9;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F5F6FA;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 0.8rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--text-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.85) !important;
+            margin: 0 12px;
+            padding: 8px 15px !important;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--text-color) !important;
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .dashboard-header {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .dashboard-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: none;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(26, 187, 156, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .card:hover::before {
+            animation: shine 1.5s;
+        }
+
+        @keyframes shine {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            color: #7F8C8D;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: rgba(255,255,255,0.9);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+            border-top: 3px solid var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .navbar-collapse {
+                background: var(--primary-color);
+                padding: 1rem;
+                margin-top: 1rem;
+                border-radius: 8px;
+            }
+            
+            .nav-link {
+                margin: 5px 0;
+            }
+            
+            .dashboard-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-book me-2"></i>CIHE LIBRARY</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="authors.html"><i class="bi bi-people me-2"></i>Authors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="publishers.html"><i class="bi bi-building me-2"></i>Publishers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="categories.html"><i class="bi bi-tags me-2"></i>Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="books.html"><i class="bi bi-book me-2"></i>Books</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html"><i class="bi bi-person-plus me-2"></i>Students</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bookissue.html"><i class="bi bi-journal-arrow-up me-2"></i>Issue Book</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reports.html"><i class="bi bi-graph-up me-2"></i>Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="settings.html"><i class="bi bi-gear me-2"></i>Settings</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pt-5">
+        <h2 class="dashboard-header text-center">Library Overview</h2>
+        <div class="dashboard-cards">
+            <div class="card">
+                <i class="bi bi-people card-icon"></i>
+                <div class="card-value">10</div>
+                <div class="card-title">Authors</div>
+                <div class="card-text">Currently registered</div>
+            </div>
+            <div class="card">
+                <i class="bi bi-building card-icon"></i>
+                <div class="card-value">10</div>
+                <div class="card-title">Publishers</div>
+                <div class="card-text">Active partners</div>
+            </div>
+            <div class="card">
+                <i class="bi bi-tags card-icon"></i>
+                <div class="card-value">10</div>
+                <div class="card-title">Categories</div>
+                <div class="card-text">Available genres</div>
+            </div>
+            <div class="card">
+                <i class="bi bi-book card-icon"></i>
+                <div class="card-value">10</div>
+                <div class="card-title">Books</div>
+                <div class="card-text">In collection</div>
+            </div>
+            <div class="card">
+                <i class="bi bi-person card-icon"></i>
+                <div class="card-value">10</div>
+                <div class="card-title">Students</div>
+                <div class="card-text">Registered users</div>
+            </div>
+            <div class="card">
+                <i class="bi bi-journal-check card-icon"></i>
+                <div class="card-value">5</div>
+                <div class="card-title">Issued</div>
+                <div class="card-text">Active loans</div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 CIHE Library. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

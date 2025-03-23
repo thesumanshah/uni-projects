@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details - CIHE</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #1ABC9C;
+            --accent-color: #34495E;
+            --text-color: #F7F9F9;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F5F6FA;
+            margin: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            color: var(--text-color);
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .student_menu {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .studentbtn, .logoutbtn {
+            padding: 8px 20px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .studentbtn {
+            background: rgba(255,255,255,0.1);
+            color: var(--text-color);
+        }
+
+        .logoutbtn {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .logoutbtn:hover {
+            background: #15967d;
+        }
+
+        nav {
+            background: var(--primary-color);
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .student-details {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 8px rgba(26, 187, 156, 0.2);
+        }
+
+        .update_btn {
+            background: var(--secondary-color);
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .update_btn:hover {
+            background: #15967d;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .student-details {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CIHE Library - Student Portal</h1>
+        <div class="student_menu">
+            <button class="studentbtn">Hi Student</button>
+            <button class="logoutbtn" onclick="logout()">Logout</button>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="search_books.html"><i class="bi bi-search me-2"></i>Search Books</a></li>
+            <li><a href="borrowed_books.html"><i class="bi bi-journal-bookmark me-2"></i>Borrowed Books</a></li>
+            <li><a href="student_details.html"><i class="bi bi-person me-2"></i>Details</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Student Details</h2>
+        <form>
+            <div class="student-details">
+                <div class="form-group">
+                    <label for="studentName"><i class="bi bi-person-circle me-2"></i>Full Name:</label>
+                    <input type="text" id="studentName" name="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="userName"><i class="bi bi-person-badge me-2"></i>Username:</label>
+                    <input type="text" id="userName" name="userName" required>
+                </div>
+                <div class="form-group">
+                    <label for="userEmail"><i class="bi bi-envelope me-2"></i>Email:</label>
+                    <input type="email" id="userEmail" name="userEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPhonenumber"><i class="bi bi-phone me-2"></i>Phone Number:</label>
+                    <input type="tel" id="userPhonenumber" name="userPhonenumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="userAddress"><i class="bi bi-geo-alt me-2"></i>Address:</label>
+                    <input type="text" id="userAddress" name="userAddress" required>
+                </div>
+                <button type="submit" class="update_btn"><i class="bi bi-check-circle me-2"></i>Update Details</button>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        function logout(){
+            window.location.href = "login.html";
+        }
+        document.addEventListener("DOMContentLoaded", function(){
+            let studentData={
+                studentName:"Bishal Parajuli",
+                userName:"student",
+                userEmail:"bikeshp97@gmail.com",
+                userPhonenumber:"0484775502",
+                userAddress:"8/47 Waitara Avenue, Waitara, NSW 2077"
+            };
+            document.getElementById("studentName").value=studentData.studentName;
+            document.getElementById("userName").value=studentData.userName;
+            document.getElementById("userEmail").value=studentData.userEmail;
+            document.getElementById("userPhonenumber").value=studentData.userPhonenumber;
+            document.getElementById("userAddress").value=studentData.userAddress;
+        });
+        document.querySelector(".update_btn").addEventListener("click", function(event){
+            event.preventDefault();
+            alert("Student details updated successfully");
+        });
+    </script>
+</body>
+</html>

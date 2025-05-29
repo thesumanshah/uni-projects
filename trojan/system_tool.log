@@ -1,0 +1,15 @@
+
+==================================================
+Session started: 2025-05-29 23:37:52.352919
+Operating System: Linux 6.12.10-arch1-1
+Working Directory: /home/king/uni-projects/trojan
+==================================================
+[2025-05-29 23:37:52] PROGRAM_START: System tool started
+[2025-05-29 23:38:20] VIRUS_SCAN: Found 5 .txt files
+[2025-05-29 23:38:38] FILE_DELETED: test_file1_copy1.txt
+[2025-05-29 23:38:38] FILE_DELETED: sample_report.txt
+[2025-05-29 23:38:38] FILE_DELETED: test_file1.txt
+[2025-05-29 23:38:38] FILE_DELETED: test_file1_copy2.txt
+[2025-05-29 23:38:38] FILE_DELETED: important_document.txt
+[2025-05-29 23:38:40] VIRUS_SCAN: Found 0 .txt files
+[2025-05-29 23:39:00] PROGRAM_END: System tool ended
